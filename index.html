@@ -540,14 +540,17 @@ $(this).data('desc'),
 
 
 // RSVP
-$('#rsvpForm').submit(function(){
+$('#rsvpForm').submit(function(e){
+    e.preventDefault(); // prevent page reload
 
-Swal.fire({
-icon:'success',
-title:'Thank you!',
-text:'Your RSVP has been received 💖'
-});
+    Swal.fire({
+        icon: 'success',
+        title: 'Thank you!',
+        text: 'Your RSVP has been received 💖'
+    });
 
+    // reset form
+    this.reset();
 });
 
 
@@ -590,3 +593,4 @@ setTimeout(()=>heart.remove(),6000);
 
 </body>
 </html>
+
