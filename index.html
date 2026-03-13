@@ -447,17 +447,40 @@ Two hearts met, grew together through life's journey, and now promise forever.
 
 <div class="col-md-5">
 
-<form id="rsvpForm">
+<form id="rsvpForm"
+action="https://docs.google.com/forms/d/e/1FAIpQLSe0XzKPOcEbgoAbN9Kk1ha-PD0DWh78Bh9slew_I/formResponse"
+method="POST"
+target="hidden_iframe">
 
-<input class="form-control mb-3" placeholder="Your Name" required>
+<input class="form-control mb-3"
+name="entry.1603073265"
+placeholder="Your Name"
+required>
 
-<input class="form-control mb-3" placeholder="Email" required>
+<input class="form-control mb-3"
+name="entry.2096088960"
+placeholder="Email"
+required>
 
-<button class="btn btn-success w-100">
+<label class="mb-2">Attending?</label>
+
+<div class="form-check">
+<input class="form-check-input" type="radio" name="entry.422528406" value="Yes" required>
+<label class="form-check-label">Yes</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="radio" name="entry.422528406" value="No">
+<label class="form-check-label">No</label>
+</div>
+
+<button class="btn btn-success w-100 mt-3">
 Confirm RSVP
 </button>
 
 </form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
 </div>
 
@@ -517,18 +540,13 @@ $(this).data('desc'),
 
 
 // RSVP
-
-$('#rsvpForm').submit(function(e){
-
-e.preventDefault();
+$('#rsvpForm').submit(function(){
 
 Swal.fire({
 icon:'success',
 title:'Thank you!',
 text:'Your RSVP has been received 💖'
 });
-
-this.reset();
 
 });
 
@@ -571,5 +589,4 @@ setTimeout(()=>heart.remove(),6000);
 </script>
 
 </body>
-
 </html>
