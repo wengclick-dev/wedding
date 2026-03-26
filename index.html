@@ -100,20 +100,6 @@ section{
 padding:100px 0;
 }
 
-/* Timeline */
-
-.timeline{
-max-width:800px;
-margin:auto;
-}
-
-.timeline-item{
-padding:15px;
-margin:10px 0;
-border-left:4px solid #e0b973;
-background:#f9f9f9;
-cursor:pointer;
-}
 
 /* Love Story */
 
@@ -233,60 +219,79 @@ animation:float 6s linear infinite;
   transform: translateX(-50%);
 }
 
-/* Timeline item */
+/* TIMELINE BASE */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* CENTER LINE */
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #d4af37;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* TIMELINE ITEM */
 .timeline-item {
   position: relative;
-  width: 50%;
-  padding: 20px 40px;
+  width: 100%;
+  margin: 50px 0;
 }
 
-/* LEFT side */
-.timeline-item:nth-child(odd) {
-  left: 0;
-  text-align: right;
-}
-
-/* RIGHT side */
-.timeline-item:nth-child(even) {
-  left: 50%;
-}
-
-/* Content box */
+/* CONTENT BOX */
 .timeline-item .content {
-  background: #fff;
+  width: 40%;
   padding: 20px;
+  background: #fff;
   border-radius: 12px;
-  display: inline-block;
-  max-width: 300px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-/* Time */
+/* LEFT SIDE */
+.timeline-item:nth-child(odd) .content {
+  margin-left: 0;
+}
+
+/* RIGHT SIDE */
+.timeline-item:nth-child(even) .content {
+  margin-left: auto;
+}
+
+/* TIME */
 .time {
-  display: block;
   font-weight: bold;
   color: #d4af37;
-  margin-bottom: 8px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-/* Icons */
+/* ICON */
 .timeline-item i {
-  font-size: 20px;
   color: #d4af37;
   margin-bottom: 8px;
 }
 
-/* Circle nodes */
+/* DOT ON CENTER LINE */
 .timeline-item::after {
   content: '';
   position: absolute;
-  top: 30px;
-  width: 16px;
-  height: 16px;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
   background: #fff;
   border: 3px solid #d4af37;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Position circles */
