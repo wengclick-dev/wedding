@@ -210,15 +210,19 @@ animation:float 6s linear infinite;
 0%{transform:translateY(0)}
 100%{transform:translateY(-800px)}
 }
-/* Timeline Base */
+
+    
+    /* Responsive 
+
+/* Timeline base */
 .timeline {
-  position: relative;
+ position: relative;
   max-width: 900px;
   margin: auto;
 }
 
-/* Center Line */
-.timeline::after {
+/* Center line */
+.timeline::before {
   content: '';
   position: absolute;
   width: 4px;
@@ -226,37 +230,39 @@ animation:float 6s linear infinite;
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -2px;
+  transform: translateX(-50%);
 }
 
-/* Timeline Item */
+/* Timeline item */
 .timeline-item {
-  padding: 20px 40px;
   position: relative;
   width: 50%;
+  padding: 20px 40px;
 }
 
-/* Left Side */
-.timeline-item.left {
+/* LEFT side */
+.timeline-item:nth-child(odd) {
   left: 0;
+  text-align: right;
 }
 
-/* Right Side */
-.timeline-item.right {
+/* RIGHT side */
+.timeline-item:nth-child(even) {
   left: 50%;
 }
 
-/* Content Box */
+/* Content box */
 .timeline-item .content {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  position: relative;
+  display: inline-block;
+  max-width: 300px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* Time Badge */
-.timeline-item .time {
+/* Time */
+.time {
   display: block;
   font-weight: bold;
   color: #d4af37;
@@ -265,33 +271,37 @@ animation:float 6s linear infinite;
 
 /* Icons */
 .timeline-item i {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 20px;
   color: #d4af37;
+  margin-bottom: 8px;
 }
 
-/* Circles on Line */
+/* Circle nodes */
 .timeline-item::after {
   content: '';
   position: absolute;
+  top: 30px;
   width: 16px;
   height: 16px;
-  right: -8px;
   background: #fff;
   border: 3px solid #d4af37;
-  top: 30px;
   border-radius: 50%;
   z-index: 1;
 }
 
-.timeline-item.right::after {
+/* Position circles */
+.timeline-item:nth-child(odd)::after {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even)::after {
   left: -8px;
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-  .timeline::after {
+  .timeline::before {
     left: 20px;
   }
 
@@ -301,8 +311,10 @@ animation:float 6s linear infinite;
     padding-right: 20px;
   }
 
-  .timeline-item.right {
-    left: 0%;
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
   }
 
   .timeline-item::after {
@@ -479,104 +491,7 @@ Two hearts met, grew together through life's journey, and now promise forever.
 
 </section>
 
-<!-- PROGRAM -->
 
-<section id="program">
-
-<div class="container text-center">
-
-<h2 class="cursive mb-4">Wedding Program</h2>
-
-<div class="timeline">
-
-<div class="timeline-item" data-title="Guest Arrival" data-desc="Guests arrive and are welcomed.">Guest Arrival</div>
-
-<div class="timeline-item" data-title="Processional" data-desc="The wedding entourage walks down the aisle.">Processional</div>
-
-<div class="timeline-item" data-title="Wedding Ceremony" data-desc="Exchange of vows and rings.">Ceremony</div>
-
-<div class="timeline-item" data-title="Signing" data-desc="Marriage contract signing.">Signing</div>
-
-<div class="timeline-item" data-title="Reception" data-desc="Dinner and celebration.">Reception</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<section id="program">
-  <div class="container text-center">
-    <h2 class="cursive mb-4">Wedding Program</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <i class="fas fa-users"></i>
-        <h4>Guest Arrival</h4>
-        <p>Guests arrive and are welcomed.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-person-walking"></i>
-        <h4>Processional</h4>
-        <p>The wedding entourage walks down the aisle.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-ring"></i>
-        <h4>Ceremony</h4>
-        <p>Exchange of vows and rings.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-pen-nib"></i>
-        <h4>Signing</h4>
-        <p>Marriage contract signing.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-champagne-glasses"></i>
-        <h4>Reception</h4>
-        <p>Dinner and celebration.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-utensils"></i>
-        <h4>Dinner</h4>
-        <p>Enjoy a delicious meal with loved ones.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-microphone"></i>
-        <h4>Toasts</h4>
-        <p>Heartfelt speeches from family & friends.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-music"></i>
-        <h4>First Dance</h4>
-        <p>The couple shares their first dance.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-cake-candles"></i>
-        <h4>Cake Cutting</h4>
-        <p>Sweet moment of cake cutting.</p>
-      </div>
-
-      <div class="timeline-item">
-        <i class="fas fa-headphones"></i>
-        <h4>Party</h4>
-        <p>Dance and celebrate all night!</p>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -673,6 +588,108 @@ Two hearts met, grew together through life's journey, and now promise forever.
           <i class="fas fa-headphones"></i>
           <h4>Party</h4>
           <p>Dance and enjoy the night!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<section id="program">
+  <div class="container">
+    <h2 class="text-center mb-5">Wedding Program</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">3:00 PM</span>
+          <i class="fas fa-users"></i>
+          <h4>Guest Arrival</h4>
+          <p>Guests arrive and are welcomed.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">3:30 PM</span>
+          <i class="fas fa-person-walking"></i>
+          <h4>Processional</h4>
+          <p>Wedding entourage walks down the aisle.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">4:00 PM</span>
+          <i class="fas fa-ring"></i>
+          <h4>Ceremony</h4>
+          <p>Exchange of vows and rings.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">4:45 PM</span>
+          <i class="fas fa-pen-nib"></i>
+          <h4>Signing</h4>
+          <p>Marriage contract signing.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">5:30 PM</span>
+          <i class="fas fa-champagne-glasses"></i>
+          <h4>Reception</h4>
+          <p>Start of celebration.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">6:00 PM</span>
+          <i class="fas fa-utensils"></i>
+          <h4>Dinner</h4>
+          <p>Enjoy your meal.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">7:00 PM</span>
+          <i class="fas fa-microphone"></i>
+          <h4>Toasts</h4>
+          <p>Speeches from loved ones.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">7:30 PM</span>
+          <i class="fas fa-music"></i>
+          <h4>First Dance</h4>
+          <p>Couple’s first dance.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">8:00 PM</span>
+          <i class="fas fa-cake-candles"></i>
+          <h4>Cake Cutting</h4>
+          <p>Sweet moment.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="content">
+          <span class="time">8:30 PM</span>
+          <i class="fas fa-headphones"></i>
+          <h4>Party</h4>
+          <p>Dance and celebrate!</p>
         </div>
       </div>
 
