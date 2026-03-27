@@ -346,7 +346,51 @@ section{
   }
 
 }
+/* NEW SECTIONS DESIGN */
+.section-title{
+  font-family:'Great Vibes';
+  font-size:2.5rem;
+  margin-bottom:20px;
+}
 
+.card-box{
+  background:#fff;
+  border-radius:15px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card-box:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 30px rgba(212,175,55,0.2);
+}
+
+/* SPONSORS */
+.sponsor-name{
+  font-weight:500;
+  margin:5px 0;
+}
+
+/* DRESS CODE */
+.color-box{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  margin:auto;
+  border:2px solid #ddd;
+}
+
+/* FADE ANIMATION */
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
 </style>
 
 </head>
@@ -472,6 +516,108 @@ section{
       </div>
 
     </div>
+  </div>
+</section>
+
+<section id="sponsors">
+  <div class="container text-center">
+    <h2 class="section-title">Principal Sponsors</h2>
+
+    <div class="row mt-4">
+
+      <div class="col-md-6">
+        <div class="card-box fade-up">
+          <h5>Ninong</h5>
+          <p class="sponsor-name">Juan Dela Cruz</p>
+          <p class="sponsor-name">Pedro Santos</p>
+          <p class="sponsor-name">Mark Reyes</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-box fade-up">
+          <h5>Ninang</h5>
+          <p class="sponsor-name">Maria Clara</p>
+          <p class="sponsor-name">Ana Lopez</p>
+          <p class="sponsor-name">Liza Ramos</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="entourage" class="bg-light">
+  <div class="container text-center">
+    <h2 class="section-title">Wedding Entourage</h2>
+
+    <div class="row mt-4">
+
+      <div class="col-md-4">
+        <div class="card-box fade-up">
+          <h5>Parents of the Groom</h5>
+          <p>Mr. & Mrs. Juan Sr.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-box fade-up">
+          <h5>Parents of the Bride</h5>
+          <p>Mr. & Mrs. Maria Sr.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-box fade-up">
+          <h5>Maid of Honor</h5>
+          <p>Best Friend Name</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="dresscode">
+  <div class="container text-center">
+    <h2 class="section-title">Dress Code</h2>
+    <p>Please wear formal attire in our wedding colors</p>
+
+    <div class="row mt-4">
+
+      <div class="col">
+        <div class="color-box" style="background:#d4af37"></div>
+        <p>Gold</p>
+      </div>
+
+      <div class="col">
+        <div class="color-box" style="background:#000"></div>
+        <p>Black</p>
+      </div>
+
+      <div class="col">
+        <div class="color-box" style="background:#fff"></div>
+        <p>White</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="gifts" class="bg-light">
+  <div class="container text-center">
+    <h2 class="section-title">Gift Note</h2>
+
+    <div class="card-box fade-up">
+      <p>
+        Your presence at our wedding is the greatest gift of all. 💖<br><br>
+        However, if you wish to bless us with a gift, 
+        a monetary gift for our future would be deeply appreciated.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -853,7 +999,19 @@ window.addEventListener('scroll', () => {
   });
 });
 
+
+// FADE-UP ANIMATION
+const fadeEls = document.querySelectorAll('.fade-up');
+
+window.addEventListener('scroll', () => {
+  fadeEls.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+
 </script>
 </body>
 </html>
-
